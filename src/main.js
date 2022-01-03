@@ -10,12 +10,11 @@ import { L } from "@vue-leaflet/vue-leaflet";
 import {mapboxgl} from "mapbox-gl";
 
 
-
-
 createApp(App)
   .use(router)
   .use(store)
   .use(L)
   .use(mapboxgl)
   .component("font-awesome-icon", FontAwesomeIcon)
+  
   .mount("#app");

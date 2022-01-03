@@ -5,6 +5,11 @@
     <div class="panel panel-default table-container">
     <div class="panel-heading">Monuments</div>
     <div class="panel-body">
+      <div class="row">
+          <div class="search-wrapper panel-heading col-sm-12">
+              <input class="form-control" type="text" v-model="searchQuery" placeholder="Search" />
+        </div>                        
+      </div>
       <div class="table-responsive">
         <table class="table table-striped table-bordered" id="dataTable">
           <thead>
@@ -70,6 +75,7 @@ export default {
   name: "Home",
   data() {
     return {
+      searchQuery: null,
       monuments: "",
       page: 1,
       perPage: 10,
@@ -80,7 +86,7 @@ export default {
   mounted() {
     MonumentService.getAllMonuments().then(
       (response) => {
-        console.log(response.data);
+        console.log(response.status);
         this.monuments = response.data;
       },
       (error) => {
@@ -115,9 +121,16 @@ export default {
     },
   computed: {
         displayedMonuments() {
-            return this.paginate(this.monuments);
-        }
-    }
+            if(this.searchQuery){
+              return this.paginate(this.monuments.filter((monument)=>{
+                return this.searchQuery.toLowerCase().split(' ').every(v => monument.nomM.toLowerCase().includes(v))
+              }))
+            }else{
+              return this.paginate(this.monuments);
+            }
+        },
+  }
+    
 };
 </script>
 
