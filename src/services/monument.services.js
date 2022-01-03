@@ -64,11 +64,33 @@ class MonumentService {
   }
 
   addCelebriteToMonument(codeM, numCelebrite){
-    return axios.post(API_URL + 'monuments/celebrites',
-    {
+    let monu_celeb={
       codeM: codeM,
-      numCelebrite: numCelebrite
-    }, { headers: authHeader()})
+      numCelebrite: numCelebrite,
+    }
+    return axios.post(API_URL + 'monuments/celebrites',
+    monu_celeb, { headers: authHeader()})
+    .then(response => {
+      if (response.status === 202) {
+          alert('Celebrite is added successfully to this Monument');
+      }
+      else {
+          alert('Celebrite is not added to this Monument');
+      }
+  })
+  }
+  deleteCelebriteFromMonument(codeM, numCelebrite){
+    
+    return axios.delete(API_URL + 'monuments/celebrites/'+codeM+'/'+numCelebrite,
+    { headers: authHeader()})
+    .then(response => {
+      if (response.status === 202) {
+          alert('Celebrite is deleted successfully from this Monument');
+      }
+      else {
+          alert('Celebrite is not deleted from this Monument');
+      }
+  })
   }
 }
 
