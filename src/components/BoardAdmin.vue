@@ -649,7 +649,6 @@ import $ from "jquery";
 import mapboxgl from "mapbox-gl";
 import axios from "axios";
 
-//import fireStorage from "../main";
 let departement = {
   dep: "",
   nomDep: "",
