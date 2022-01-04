@@ -5,7 +5,7 @@ const API_URL = 'http://localhost:8080/api/';
 
 class MonumentService {
   getAllMonuments() {
-    return axios.get(API_URL + 'monuments');
+    return axios.get(API_URL + 'monuments', { headers: authHeader() });
   }
 
   addMonument(monument) {

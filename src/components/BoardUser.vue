@@ -491,6 +491,7 @@ export default {
     
     if(this.monumentA.nomM !== "" && this.monumentB !== ""){
     this.showMap();
+    
     var latitudeA = this.monumentA.latitude;
     var longitudeA = this.monumentA.longitude;
     var latitudeB = this.monumentB.latitude;

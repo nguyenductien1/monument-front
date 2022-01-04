@@ -5,7 +5,7 @@ const API_URL = 'http://localhost:8080/api/';
 
 class CelebriteService {
   getAllCelebrites() {
-    return axios.get(API_URL + 'celebrites');
+    return axios.get(API_URL + 'celebrites', { headers: authHeader() });
   }
 
   addCelebrite(celebrite) {
@@ -27,6 +27,9 @@ class CelebriteService {
 
   getDetails(id){
     return axios.get(API_URL + 'celebrites/'+id, { headers: authHeader() });
+  }
+  getMonuments(id){
+    return axios.get(API_URL + 'celebrites/monuments/'+id, { headers: authHeader() });
   }
 
   editCelebrite(id, celebrite) {

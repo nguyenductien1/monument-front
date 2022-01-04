@@ -3,6 +3,9 @@ import Home from "./components/Home.vue";
 import Login from "./components/Login.vue";
 import Register from "./components/Register.vue";
 import MonumentDetails from "./components/MonumentDetails.vue";
+import CelebriteDetails from "./components/CelebriteDetails.vue";
+import LieuDetails from "./components/LieuDetails.vue";
+import DepartementDetails from "./components/DepartementDetails.vue";
 // lazy-loaded
 const Profile = () => import("./components/Profile.vue")
 const BoardAdmin = () => import("./components/BoardAdmin.vue")
@@ -50,6 +53,26 @@ const routes = [
     name: "monumentDetails",
     // lazy-loaded
     component: MonumentDetails
+  },
+  {
+    path: "/celebrites/:numCelebrite",
+    name: "celebriteDetails",
+    // lazy-loaded
+    component: CelebriteDetails
+  }
+  ,
+  {
+    path: "/departements/:numDep",
+    name: "departementDetails",
+    // lazy-loaded
+    component: DepartementDetails
+  }
+  ,
+  {
+    path: "/lieux/:codeInsee",
+    name: "lieuDetails",
+    // lazy-loaded
+    component: LieuDetails
   }
 ];
 

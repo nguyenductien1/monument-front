@@ -123,7 +123,6 @@ export default {
   mounted() {
     MonumentService.getAllMonuments().then(
       (response) => {
-        console.log(response.status);
         this.monuments = response.data;
       },
       (error) => {

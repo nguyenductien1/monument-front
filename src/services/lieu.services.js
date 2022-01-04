@@ -5,7 +5,7 @@ const API_URL = 'http://localhost:8080/api/';
 
 class LieuService {
   getAllLieux() {
-    return axios.get(API_URL + 'lieux');
+    return axios.get(API_URL + 'lieux', { headers: authHeader() });
   }
 
   addLieu(lieu) {
@@ -27,6 +27,9 @@ class LieuService {
 
   getDetails(codeInsee){
     return axios.get(API_URL + 'lieux/'+codeInsee, { headers: authHeader() });
+  }
+  getMonumentsbyLieu(codeInsee){
+    return axios.get(API_URL + 'lieux/monuments/'+codeInsee, { headers: authHeader() });
   }
 
   editLieu(codeInsee, lieu) {

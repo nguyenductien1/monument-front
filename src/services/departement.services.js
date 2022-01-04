@@ -5,7 +5,7 @@ const API_URL = 'http://localhost:8080/api/';
 
 class DepartementService {
   getAllDepartements() {
-    return axios.get(API_URL + 'departements');
+    return axios.get(API_URL + 'departements', { headers: authHeader() });
   }
 
   addDepartement(departement) {
@@ -26,6 +26,9 @@ class DepartementService {
 
   getDetails(dep){
     return axios.get(API_URL + 'departements/'+dep, { headers: authHeader() });
+  }
+  getLieuxbyDepartement(dep){
+    return axios.get(API_URL + 'departements/lieux/'+dep, { headers: authHeader() });
   }
 
   editDepartement(dep, codeInseeChefLieu) {
