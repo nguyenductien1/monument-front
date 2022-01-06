@@ -569,7 +569,18 @@
                 />
               </div>
             </div>
-
+            <div class="form-row">
+              <div class="col-10 col-celebrite-epoque">
+                <label for="celebrite-photo-url">Epoque:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="celebrite-photo-url"
+                  v-model="celebrite.epoque"
+                  placeholder="Epoque"
+                />
+              </div>
+            </div>
             <div class="form-row">
               <div class="col-10 col-celebrite-photo-url">
                 <label for="celebrite-photo-url">Photo URL:</label>
@@ -977,6 +988,7 @@ export default {
       this.formData.append("file", file);
     },
     startUpload(typeUpload) {
+      let user = JSON.parse(localStorage.getItem('user'));
       axios({
         url: "http://localhost:8080/api/upload",
         method: "POST",
@@ -984,6 +996,7 @@ export default {
         headers: {
           Accept: "application/json",
           "Content-Type": "multipart/form-data",
+          Authorization: user.token
         },
       }).then((response) => {
         if (typeUpload == "m") {

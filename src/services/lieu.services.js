@@ -40,10 +40,10 @@ class LieuService {
       dep: lieu.dep
     }, { headers: authHeader() }).then(response => {
       if (response.status === 200) {
-          alert('Departement is updated successfully');
+          alert('Lieu is updated successfully');
       }
       else {
-          alert('Departement is not updated');
+          alert('Lieu is not updated');
       }
   });
   }
@@ -51,10 +51,10 @@ class LieuService {
   deleteLieu(codeInsee) {
     return axios.delete(API_URL + 'lieux/'+codeInsee, { headers: authHeader() }).then(response => {
       if (response.status === 202) {
-          alert('Departement is deleted successfully');
+          alert('Lieu is deleted successfully');
       }
       else {
-          alert('Departement is not deleted');
+          alert('Lieu is not deleted');
       }
   });
   }
